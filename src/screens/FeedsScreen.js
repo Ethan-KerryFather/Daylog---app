@@ -8,6 +8,9 @@ function FeedScreen() {
   console.log(JSON.stringify(logs, null, 2));
   return (
     <View style={styles.block}>
+      {logs.map(element => (
+        <Text key={element.id}>{element.title}</Text>
+      ))}
       <FloatingWriteButton />
     </View>
   );
