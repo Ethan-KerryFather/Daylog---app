@@ -8,6 +8,7 @@ function WriteEditor({title, body, setTitle, setBody}) {
     <View style={styles.block}>
       <TextInput
         placeholder="제목을 입력하세요"
+        placeholderTextColor="black"
         style={styles.titleInput}
         returnKeyType="next"
         // returnKeyType?
@@ -19,6 +20,7 @@ function WriteEditor({title, body, setTitle, setBody}) {
       />
       <TextInput
         placeholder="당신의 오늘을 기록해보세요"
+        placeholderTextColor="black"
         style={styles.bodyInput}
         multiline
         onChangeText={setBody}
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
     fontSize: 18,
     marginBottom: 16,
-    color: '#263238',
+    color: '#000000',
     fontWeight: 'bold',
   },
   bodyInput: {
