@@ -2,10 +2,32 @@ import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 import FeedListItem from './FeedListItem';
 
-function FeedList({logs}) {
+function FeedList({logs, onScrolledToBottom}) {
   /*
   FlatList의 장점은 화면에 보이는 아이템만 렌더링하고 나머지 아이템은 미리 렌더링하지 않기 때문에 메모리 효율성이 높다는 것이다. 
   */
+
+  const onScroll = e => {
+    const {contentSize, layoutMeasurement, contentOffset} = e.nativeEvent;
+    const distanceFromBottom =
+      contentSize.height - layoutMeasurement.height - contentOffset.y;
+
+    if (distanceFromBottom < 72) {
+      console.log('바닥과 가까워요');
+      onScrolledToBottom(true);
+    } else {
+      console.log('바닥과 멀어졌어요');
+      onScrolledToBottom(false);
+    }
+    // console.log(
+    //   `contentSize: ${JSON.stringify(
+    //     contentSize,
+    //   )}\nlayoutMeasurement: ${JSON.stringify(
+    //     layoutMeasurement,
+    //   )}\ncontentOffset: ${JSON.stringify(contentOffset)}`,
+    // );
+  };
+
   return (
     <FlatList
       data={logs}
@@ -13,10 +35,10 @@ function FeedList({logs}) {
       renderItem={({item}) => <FeedListItem log={item} />}
       style={styles.container}
       keyExtractor={item => {
-        console.log('item:' + JSON.stringify(item));
         return item.id;
       }}
       ItemSeparatorComponent={() => <View style={styles.separator} />}
+      onScroll={onScroll}
     />
   );
 }

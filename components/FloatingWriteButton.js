@@ -1,17 +1,24 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect} from 'react';
-import {Platform, Pressable, StyleSheet, View} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {Platform, Pressable, StyleSheet, View, Animated} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-function FloatingWriteButton() {
-  const navigation = useNavigation();
-
+function FloatingWriteButton({hidden}) {
   useEffect(() => {
-    console.log('component mount | updated ');
+    Animated.timing(animation, {
+      toValue: hidden ? 1 : 0,
+      useNativeDriver: true,
+    }).start(() => {
+      console.log('callback function');
+    });
     return () => {
-      'component unmount';
+      console.log('floatingWriteBtn unmount | updated');
     };
-  });
+  }, [hidden, animation]);
+
+  const animation = useRef(new Animated.Value(0)).current;
+
+  const navigation = useNavigation();
 
   const onPress = () => {
     navigation.navigate('Write');

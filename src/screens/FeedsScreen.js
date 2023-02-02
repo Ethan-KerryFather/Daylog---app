@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {StyleSheet, View, Text, TextInput} from 'react-native';
 import FeedList from '../../components/FeedList';
 import FloatingWriteButton from '../../components/FloatingWriteButton';
@@ -14,11 +14,19 @@ import LogContext from '../../contexts/LogContext';
 
 function FeedScreen() {
   const {logs} = useContext(LogContext);
-  console.log(JSON.stringify(logs, null, 2));
+  const [hidden, setHidden] = useState(false);
+
+  // 스크롤이 바닥에 가까운지를 확인해서 숨긴다.
+  const onScrolledToBottom = isBottom => {
+    if (hidden !== isBottom) {
+      setHidden(!isBottom);
+    }
+  };
+
   return (
     <View style={styles.block}>
-      <FeedList logs={logs} />
-      <FloatingWriteButton />
+      <FeedList logs={logs} onScrolledToBottom={onScrolledToBottom} />
+      <FloatingWriteButton hidden={hidden} />
     </View>
   );
 }
@@ -28,8 +36,6 @@ export default FeedScreen;
 const styles = StyleSheet.create({
   block: {
     flex: 1,
-    backgroundColor: 'red',
-    color: 'black',
   },
   input: {
     padding: 16,
