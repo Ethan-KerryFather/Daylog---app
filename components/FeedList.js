@@ -7,7 +7,11 @@ function FeedList({logs, onScrolledToBottom}) {
   FlatList의 장점은 화면에 보이는 아이템만 렌더링하고 나머지 아이템은 미리 렌더링하지 않기 때문에 메모리 효율성이 높다는 것이다. 
   */
 
-  const onScroll = e => {
+  function onScroll(e) {
+    if (!onScrolledToBottom) {
+      return;
+    }
+
     const {contentSize, layoutMeasurement, contentOffset} = e.nativeEvent;
     const distanceFromBottom =
       contentSize.height - layoutMeasurement.height - contentOffset.y;
@@ -19,14 +23,7 @@ function FeedList({logs, onScrolledToBottom}) {
       console.log('바닥과 멀어졌어요');
       onScrolledToBottom(false);
     }
-    // console.log(
-    //   `contentSize: ${JSON.stringify(
-    //     contentSize,
-    //   )}\nlayoutMeasurement: ${JSON.stringify(
-    //     layoutMeasurement,
-    //   )}\ncontentOffset: ${JSON.stringify(contentOffset)}`,
-    // );
-  };
+  }
 
   return (
     <FlatList
@@ -49,6 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  //
   separator: {
     backgroundColor: '#e0e0e0',
     height: 1,
