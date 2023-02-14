@@ -8,18 +8,26 @@
 </pre>
   <hr/>
   <h3>used Library</h3>
-  <p>react-native-community/datetimepicker</p>
-  <p>react-navigation/bottom-tabs</p>
-  <p>date-fns</p>
-  <p>react-native-calendars</p>
-  <p>react-native-get-random-values</p>
-  <p>react-native-modal-datetime-picker</p>
-  <p>react-native-reanimated</p>
-  <p>uuid</p>
-  
-  <pre>
-React-native
 
+  <pre>
+    "@react-native-async-storage/async-storage": "^1.17.11",
+    "@react-native-community/datetimepicker": "^6.7.4",
+    "@react-navigation/bottom-tabs": "^6.5.3",
+    "@react-navigation/native": "^6.1.2",
+    "@react-navigation/native-stack": "^6.9.8",
+    "@react-navigation/stack": "^6.3.11",
+    "date-fns": "^2.29.3",
+    "package": "^1.0.1",
+    "react": "18.0.0",
+    "react-native": "0.69.7",
+    "react-native-calendars": "^1.1293.0",
+    "react-native-get-random-values": "^1.8.0",
+    "react-native-modal-datetime-picker": "^14.0.1",
+    "react-native-reanimated": "^2.14.1",
+    "react-native-safe-area-context": "^4.4.1",
+    "react-native-screens": "^3.18.2",
+    "react-native-vector-icons": "^9.2.0",
+    "uuid": "^9.0.0"
 </pre>
 
 
