@@ -10,6 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.11",
+    "@react-native-community/datetimepicker": "^6.7.4",
     "@react-navigation/bottom-tabs": "^6.5.3",
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
@@ -18,7 +20,9 @@
     "package": "^1.0.1",
     "react": "18.0.0",
     "react-native": "0.69.7",
+    "react-native-calendars": "^1.1293.0",
     "react-native-get-random-values": "^1.8.0",
+    "react-native-modal-datetime-picker": "^14.0.1",
     "react-native-reanimated": "^2.14.1",
     "react-native-safe-area-context": "^4.4.1",
     "react-native-screens": "^3.18.2",
