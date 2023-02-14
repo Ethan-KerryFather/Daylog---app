@@ -8,6 +8,15 @@
 </pre>
   <hr/>
   <h3>used Library</h3>
+  <p>react-native-community/datetimepicker</p>
+  <p>react-navigation/bottom-tabs</p>
+  <p>date-fns</p>
+  <p>react-native-calendars</p>
+  <p>react-native-get-random-values</p>
+  <p>react-native-modal-datetime-picker</p>
+  <p>react-native-reanimated</p>
+  <p>uuid</p>
+  
   <pre>
 React-native
 
